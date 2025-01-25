@@ -1,0 +1,18 @@
+(lang dune 3.16)
+
+(name task11)
+
+(generate_opam_files true)
+
+(source
+ (github DiedCloud/fp-lab-1))
+
+(authors "Kirill Frolov")
+
+(package
+ (name task11)
+ (synopsis "Euler project problem 11")
+ (description "Bunch of solutions with OCaml")
+ (depends ocaml dune)
+
+; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html
