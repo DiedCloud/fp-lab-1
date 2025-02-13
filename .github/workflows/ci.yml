@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./11
+        working-directory: ./task11
 
     steps:
       - name: Checkout tree
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./20
+        working-directory: ./task20
 
     steps:
       - name: Checkout tree
