@@ -13,6 +13,6 @@
  (name task20)
  (synopsis "Euler project problem 20")
  (description "Bunch of solutions with OCaml")
- (depends ocaml dune)
+ (depends ocaml dune))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

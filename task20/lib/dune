@@ -1,2 +1,3 @@
 (library
- (name task20))
+ (name task20_lib)
+ (modules recursion tail_recursion moduled mapped lazy iterative))

@@ -1,6 +1,37 @@
-open OUnit2
-open Task11_lib
+let generate_row_products grid rows cols =
+  Array.init rows (fun i ->
+    Array.init (cols - 3) (fun j ->
+      grid.(i).(j) * grid.(i).(j+1) * grid.(i).(j+2) * grid.(i).(j+3)))
 
+let generate_col_products grid rows cols =
+  Array.init (rows - 3) (fun i ->
+    Array.init cols (fun j ->
+      grid.(i).(j) * grid.(i+1).(j) * grid.(i+2).(j) * grid.(i+3).(j)))
+
+let generate_main_diagonal_products grid rows cols =
+  Array.init (rows - 3) (fun i ->
+    Array.init (cols - 3) (fun j ->
+      grid.(i).(j) * grid.(i+1).(j+1) * grid.(i+2).(j+2) * grid.(i+3).(j+3)))
+
+let generate_second_diagonal_products grid rows cols =
+  Array.init (rows - 3) (fun i ->
+    Array.init (cols - 3) (fun j ->
+      grid.(i).(j) * grid.(i-1).(j+1) * grid.(i-2).(j+2) * grid.(i-3).(j+3))) (* TODO i от 3*)
+
+
+let max_product grid =
+  let rows = Array.length grid in
+  let cols = Array.length grid.(0) in
+  let all_products = List.flatten [
+    Array.to_list (generate_row_products grid rows cols);
+    Array.to_list (generate_col_products grid rows cols);
+    Array.to_list (generate_main_diagonal_products grid rows cols);
+    Array.to_list (generate_second_diagonal_products grid rows cols);
+  ] in
+  List.fold_left max 0 (List.map (Array.fold_left max 0) all_products)
+
+  
+(* Пример использования *)
 let grid = [|
   [|08; 02; 22; 97; 38; 15; 00; 40; 00; 75; 04; 05; 07; 78; 52; 12; 50; 77; 91; 08|];
   [|49; 49; 99; 40; 17; 81; 18; 57; 60; 87; 17; 40; 98; 43; 69; 48; 04; 56; 62; 00|];
@@ -23,46 +54,5 @@ let grid = [|
   [|20; 73; 35; 29; 78; 31; 90; 01; 74; 31; 49; 71; 48; 86; 81; 16; 23; 57; 05; 54|];
   [|01; 70; 54; 71; 83; 51; 54; 69; 16; 92; 33; 48; 61; 43; 52; 01; 89; 19; 67; 48|];
 |];;
-
-(* Tailrec tests *)
-let test_tailrec _ =
-  assert_equal 70600674 (Tail_recursion.max_product grid)
-;;
-
-(* Rec tests *)
-let test_rec _ =
-  assert_equal 70600674 (Recursion.max_product grid)
-;;
-
-(* Module tests *)
-let test_moduled _ =
-  assert_equal 70600674 (Moduled.max_product grid)
-;;
-
-(* Iterative tests*)
-let test_iterative _ =
-  assert_equal 70600674 (Iterative.max_product grid)
-;;
-
-(* Map tests *)
-let test_mapped _ =
-  assert_equal 70600674 (Mapped.max_product grid)
-;;
-
-(* Lazy collections tests *)
-let test_lazy _ =
-  assert_equal 70600674 (Lazy.max_product grid)
-;;
-
-let suite =
-  "Project Euler Problem 11 Tests"
-  >::: [ "Tailrec - " >:: test_tailrec (* TODO failure not equal*)
-       ; "Rec - " >:: test_rec
-       ; "Moduled - " >:: test_moduled
-       ; "Iterative - " >:: test_iterative
-       ; "Mapped - " >:: test_mapped (* TODO падает убивает out of bounds*)
-       ; "Lazy - " >:: test_lazy
-       ]
-;;
-
-let _ = run_test_tt_main suite
+let result = max_product grid;;
+print_int result;;
