@@ -56,11 +56,11 @@ let test_lazy _ =
 
 let suite =
   "Project Euler Problem 11 Tests"
-  >::: [ "Tailrec - " >:: test_tailrec (* TODO failure not equal*)
+  >::: [ "Tailrec - " >:: test_tailrec
        ; "Rec - " >:: test_rec
        ; "Moduled - " >:: test_moduled
        ; "Iterative - " >:: test_iterative
-       ; "Mapped - " >:: test_mapped (* TODO падает убивает out of bounds*)
+       ; "Mapped - " >:: test_mapped
        ; "Lazy - " >:: test_lazy
        ]
 ;;

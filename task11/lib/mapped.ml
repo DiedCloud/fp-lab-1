@@ -16,7 +16,7 @@ let generate_main_diagonal_products grid rows cols =
 let generate_second_diagonal_products grid rows cols =
   Array.init (rows - 3) (fun i ->
     Array.init (cols - 3) (fun j ->
-      grid.(i).(j) * grid.(i-1).(j+1) * grid.(i-2).(j+2) * grid.(i-3).(j+3))) (* TODO i от 3*)
+      grid.(i).(cols - 1 - j) * grid.(i+1).(cols - 2 - j) * grid.(i+2).(cols - 3 - j) * grid.(i+3).(cols - 4 - j)))
 
 
 let max_product grid =

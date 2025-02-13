@@ -1,5 +1,5 @@
 let rec max_product_recursive grid rows cols i j acc =
-  if i >= rows then 0
+  if i >= rows then acc
   else if j >= cols then max_product_recursive grid rows cols (i + 1) 0 acc
   else
     let max_in_position =
