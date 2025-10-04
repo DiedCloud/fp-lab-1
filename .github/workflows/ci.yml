@@ -11,54 +11,46 @@ on:
 permissions: read-all
 
 jobs:
-  task11:
+  task6:
     strategy:
       fail-fast: false
 
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./task11
+        working-directory: ./task6
 
     steps:
-      - name: Checkout tree
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set-up OCaml
-        uses: ocaml/setup-ocaml@v3
+      - uses: erlef/setup-beam@v1
         with:
-          ocaml-compiler: 4.14
+          otp-version: "27.1.2"
+          gleam-version: "1.12.0"
+          rebar3-version: "3"
 
-      - run: opam install . --deps-only --with-test
-      - run: opam install zanuda
-      - run: opam install ounit2
-      - run: rm -rf _build
-      - run: opam exec -- dune build @fmt @check @runtest -j3
-      - run: opam exec -- dune runtest
-      - run: opam exec -- zanuda -no-top_file_license -no-check-filesystem -dir .
+      - run: gleam deps download
+      - run: gleam test
+      - run: gleam format --check src test
 
-  task20:
+  task25:
     strategy:
       fail-fast: false
 
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./task20
+        working-directory: ./task25
 
     steps:
-      - name: Checkout tree
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set-up OCaml
-        uses: ocaml/setup-ocaml@v3
+      - uses: erlef/setup-beam@v1
         with:
-          ocaml-compiler: 4.14
+          otp-version: "27.1.2"
+          gleam-version: "1.12.0"
+          rebar3-version: "3"
 
-      - run: opam install . --deps-only --with-test
-      - run: opam install zanuda
-      - run: opam install ounit2
-      - run: rm -rf _build
-      - run: opam exec -- dune build @fmt @check @runtest -j3
-      - run: opam exec -- dune runtest
-      - run: opam exec -- zanuda -no-top_file_license -no-check-filesystem -dir .\
+      - run: gleam deps download
+      - run: gleam test
+      - run: gleam format --check src test

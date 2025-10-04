@@ -1,3 +1,0 @@
-(test
- (name test_task20)
- (libraries task20_lib ounit2))

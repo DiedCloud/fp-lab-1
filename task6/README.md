@@ -1,0 +1,24 @@
+# task6
+
+[![Package Version](https://img.shields.io/hexpm/v/task6)](https://hex.pm/packages/task6)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/task6/)
+
+```sh
+gleam add task6@1
+```
+```gleam
+import task6
+
+pub fn main() -> Nil {
+  // TODO: An example of the project in use
+}
+```
+
+Further documentation can be found at <https://hexdocs.pm/task6>.
+
+## Development
+
+```sh
+gleam run   # Run the project
+gleam test  # Run the tests
+```

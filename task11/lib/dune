@@ -1,3 +1,0 @@
-(library
- (name task11_lib)
- (modules recursion tail_recursion moduled mapped lazy iterative))
