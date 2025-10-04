@@ -1,13 +1,36 @@
 import gleeunit
 
+import lazy
+import mapped
+import moduled
+import recursion
+import tail_recursion
+import task6
+
 pub fn main() -> Nil {
   gleeunit.main()
 }
 
-// gleeunit test functions end in `_test`
-pub fn hello_world_test() {
-  let name = "Joe"
-  let greeting = "Hello, " <> name <> "!"
+pub fn recursion_test() {
+  assert recursion.solve(100) == 25_164_150
+}
 
-  assert greeting == "Hello, Joe!"
+pub fn tail_recursion_test() {
+  assert tail_recursion.solve(100) == 25_164_150
+}
+
+pub fn moduled_test() {
+  assert moduled.solve(100) == 25_164_150
+}
+
+pub fn mapped_test() {
+  assert mapped.solve(100) == 25_164_150
+}
+
+pub fn lazy_test() {
+  assert lazy.solve(100) == 25_164_150
+}
+
+pub fn math_test() {
+  assert task6.math_solve(100) == 25_164_150
 }
