@@ -1,24 +1,27 @@
-# task6
+# Solutions for Project Euler problem №6
 
-[![Package Version](https://img.shields.io/hexpm/v/task6)](https://hex.pm/packages/task6)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/task6/)
+<p>The sum of the squares of the first ten natural numbers is:</p>
 
-```sh
-gleam add task6@1
-```
-```gleam
-import task6
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.latex?\color{white}1^2%20+%202^2%20+%20...%20+%2010^2%20=%20385">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.latex?1^2%20+%202^2%20+%20...%20+%2010^2%20=%20385">
+  <img alt="1^2 + 2^2 + ... + 10^2 = 385" src="https://latex.codecogs.com/svg.latex?1^2%20+%202^2%20+%20...%20+%2010^2%20=%20385">
+</picture>
 
-pub fn main() -> Nil {
-  // TODO: An example of the project in use
-}
-```
+<p>The square of the sum of the first ten natural numbers is:</p>
 
-Further documentation can be found at <https://hexdocs.pm/task6>.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.latex?\color{white}(1%20+%202%20+%20...%20+%2010)^2%20=%2055^2%20=%203025">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.latex?(1%20+%202%20+%20...%20+%2010)^2%20=%2055^2%20=%203025">
+  <img alt="(1 + 2 + ... + 10)^2 = 55^2 = 3025" src="https://latex.codecogs.com/svg.latex?(1%20+%202%20+%20...%20+%2010)^2%20=%2055^2%20=%203025">
+</picture>
 
-## Development
+<p>Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is:</p>
 
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://latex.codecogs.com/svg.latex?\color{white}3025%20-%20385%20=%202640">
+  <source media="(prefers-color-scheme: light)" srcset="https://latex.codecogs.com/svg.latex?3025%20-%20385%20=%202640">
+  <img alt="3025 - 385 = 2640" src="https://latex.codecogs.com/svg.latex?3025%20-%20385%20=%202640">
+</picture>
+
+<p><strong>Question:</strong> Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.</p>
